@@ -44,7 +44,7 @@ function setBoardSize(newBoardSize) {
     if (newBoardSize < canvasPixels) {
         boardSize = newBoardSize;
         cellPixels = canvasPixels / boardSize;
-        createNewBoard();
+        _createNewBoard();
     } else {
         console.error('Provided board size is invalid!');
     }

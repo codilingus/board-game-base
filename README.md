@@ -47,24 +47,27 @@ You can use the following global constants, which reflect arrow keyboard keys:
 
 ### getRecentKey()
 Returns a constant (described above) that represents key which was pressed last time (even a few steps before).
+
 At the beginning `getRecentKey()` will return `KEY_EMPTY`.
 ##### Example
 Program runs, in step 7 user presses UP key and in step 15 presses DOWN.
-Result:
-In steps 0-6, `getRecentKey()` will return `KEY_EMPTY`.
-In steps 7-14, `getRecentKey()` will return `KEY_UP`.
-In steps 15+, `getRecentKey()` will return `KEY_DOWN`.
+
+Result:  
+In steps 0-6, `getRecentKey()` will return `KEY_EMPTY`.  
+In steps 7-14, `getRecentKey()` will return `KEY_UP`.  
+In steps 15+, `getRecentKey()` will return `KEY_DOWN`.  
 
 ### getLastStepKey()
 Returns a constant (described above) that represents key which was pressed exactly during the step in which we are currently. Otherwise returns `KEY_EMPTY`.
 ##### Example
 Program runs, in step 7 user presses UP key and in step 15 presses DOWN.
-Result:
-In steps 0-6, `getLastStepKey()` will return `KEY_EMPTY`.
-In step 7, `getLastStepKey()` will return `KEY_UP`.
-In steps 8-14, `getLastStepKey()` will return `KEY_EMPTY`.
-In step 15, `getLastStepKey()` will return `KEY_DOWN`.
-In steps 16+, `getLastStepKey()` will return `KEY_EMPTY`.
+
+Result:  
+In steps 0-6, `getLastStepKey()` will return `KEY_EMPTY`.  
+In step 7, `getLastStepKey()` will return `KEY_UP`.  
+In steps 8-14, `getLastStepKey()` will return `KEY_EMPTY`.  
+In step 15, `getLastStepKey()` will return `KEY_DOWN`.  
+In steps 16+, `getLastStepKey()` will return `KEY_EMPTY`.  
 
 ## Other
 ### setSpeed(newSpeed)

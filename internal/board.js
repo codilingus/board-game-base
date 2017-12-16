@@ -1,4 +1,4 @@
-window.addEventListener('keydown', this.onKeyDown, false);
+window.addEventListener('keydown', this._onKeyDown, false);
 
 let canvas = document.getElementById('c').getContext('2d')
 canvas.strokeStyle = '#e1e1e1';
@@ -16,12 +16,12 @@ let cells = [];
 init();
 
 function init() {
-    createNewBoard();
+    _createNewBoard();
     initialize();
-    draw();
+    _draw();
 }
 
-function createNewBoard() {
+function _createNewBoard() {
     cells = [];
     for (var i = 0; i < boardSize; i++) {
         cells[i] = [];
@@ -31,7 +31,7 @@ function createNewBoard() {
     }
 }
 
-function draw() {
+function _draw() {
     canvas.clearRect(0, 0, canvasPixels, canvasPixels);
     cells.forEach(function (row, x) {
         row.forEach(function (cell, y) {
@@ -46,10 +46,10 @@ function draw() {
         });
     });
     keyDownInLastStep = false;
-    setTimeout(function () { nextStep(); draw(); }, stepSpeed);
+    setTimeout(function () { nextStep(); _draw(); }, stepSpeed);
 }
 
-function onKeyDown(e) {
+function _onKeyDown(e) {
     switch (e.keyCode) {
         case 40:
             currentKey = 'DOWN';

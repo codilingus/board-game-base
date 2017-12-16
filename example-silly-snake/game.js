@@ -11,13 +11,17 @@ function drawSnake() {
     }
 }
 
-function nextStep() {
+function moveSnakeToRight() {
     for (let i = 0; i < snake.length; ++i) {
         snake[i][0]++;
         if (snake[i][0] === SIZE) {
             snake[i][0] = 0;
         }
     }
+}
+
+function nextStep() {
+    moveSnakeToRight();
 
     clearBoard();
     drawSnake();
