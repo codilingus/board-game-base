@@ -1,6 +1,6 @@
 window.addEventListener('keydown', this._onKeyDown, false);
 
-let canvas = document.getElementById('c').getContext('2d')
+const canvas = document.getElementById('c').getContext('2d');
 canvas.strokeStyle = '#e1e1e1';
 
 const canvasPixels = 512;
@@ -22,27 +22,35 @@ function init() {
 }
 
 function _createNewBoard() {
-    cells = [];
-    for (var i = 0; i < boardSize; i++) {
-        cells[i] = [];
-        for (var j = 0; j < boardSize; j++) {
-            cells[i][j] = 0;
-        }
-    }
+    cells = Array.from(
+        { length: boardSize },
+        () => new Array(boardSize).fill(null)
+    );
 }
 
 function _draw() {
     canvas.clearRect(0, 0, canvasPixels, canvasPixels);
     cells.forEach(function (row, x) {
         row.forEach(function (cell, y) {
+            const cellX = x * cellPixels;
+            const cellY = y * cellPixels;
+
             canvas.beginPath();
-            canvas.rect(x * cellPixels, y * cellPixels, cellPixels, cellPixels);
-            if (cell) {
-                canvas.fillStyle = cell;
+            canvas.rect(cellX, cellY, cellPixels, cellPixels);
+
+            if (cell && cell.type === 'fill') {
+                canvas.fillStyle = cell.color;
                 canvas.fill();
-            } else {
-                canvas.stroke();
             }
+
+            if (cell && cell.type === 'image') {
+                const { image, width, height } = cell;
+                if(image.complete) {
+                    canvas.drawImage(image, cellX, cellY, width * cellPixels, height * cellPixels);
+                }
+            }
+
+            canvas.stroke();
         });
     });
     keyDownInLastStep = false;
