@@ -28,6 +28,9 @@ Makes board empty.
 ### fill(x, y, color) OR fill(x, y)
 Fills a cell at (x, y) with color (if provided, otherwise with default color).
 
+### drawImage(url, x, y, [ width = 1, [ height = 1 ] ])
+Draws an image at (x, y) with specified with and height in cells if provided.
+
 ### clear(x, y)
 Clears cell at (x, y).
 
@@ -47,6 +50,9 @@ You can use the following global constants, which reflect arrow keyboard keys:
 
 ### getRecentKey()
 Returns a constant (described above) that represents key which was pressed last time (even a few steps before).
+
+### clearRecentKey()
+Clears recent key value.
 
 At the beginning `getRecentKey()` will return `KEY_EMPTY`.
 ##### Example
