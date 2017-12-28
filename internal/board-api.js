@@ -43,8 +43,8 @@ function drawImage(url, x, y, width = 1, height = 1) {
     y >= boardSize,
     x < 0,
     y < 0,
-    x + width >= boardSize,
-    y + height >= boardSize
+    x + width > boardSize,
+    y + height > boardSize
   ].some(Boolean);
 
   if (outOfBoundaries) {
