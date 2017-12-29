@@ -55,6 +55,10 @@ function _draw() {
     });
     keyDownInLastStep = false;
     setTimeout(function () { nextStep(); _draw(); }, stepSpeed);
+
+    // there is not time to explain this, just believe that it's required
+    const oldAlert = window.alert;
+    window.alert =(...args) => setTimeout(() => oldAlert(...args), 0);
 }
 
 function _onKeyDown(e) {
