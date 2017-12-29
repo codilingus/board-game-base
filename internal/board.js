@@ -18,7 +18,16 @@ init();
 function init() {
     _createNewBoard();
     initialize();
-    _draw();
+    _refreshBoard();
+    _step();
+}
+
+function _step() {
+    setTimeout(function () {
+        nextStep();
+        keyDownInLastStep = false;
+        _step();
+    }, stepSpeed);
 }
 
 function _createNewBoard() {
@@ -26,9 +35,11 @@ function _createNewBoard() {
         { length: boardSize },
         () => new Array(boardSize).fill(null)
     );
+
+    _refreshBoard();
 }
 
-function _draw() {
+function _refreshBoard() {
     canvas.clearRect(0, 0, canvasPixels, canvasPixels);
     cells.forEach(function (row, x) {
         row.forEach(function (cell, y) {
@@ -45,7 +56,7 @@ function _draw() {
 
             if (cell && cell.type === 'image') {
                 const { image, width, height } = cell;
-                if(image.complete) {
+                if (image.complete) {
                     canvas.drawImage(image, cellX, cellY, width * cellPixels, height * cellPixels);
                 }
             }
@@ -53,12 +64,6 @@ function _draw() {
             canvas.stroke();
         });
     });
-    keyDownInLastStep = false;
-    setTimeout(function () { nextStep(); _draw(); }, stepSpeed);
-
-    // there is not time to explain this, just believe that it's required
-    const oldAlert = window.alert;
-    window.alert =(...args) => setTimeout(() => oldAlert(...args), 0);
 }
 
 function _onKeyDown(e) {

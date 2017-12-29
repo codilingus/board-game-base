@@ -23,6 +23,8 @@ function getLastStepKey() {
 
 function clear(x, y) {
   cells[x][y] = undefined;
+  
+  _refreshBoard();
 }
 
 function fill(x, y, color = DEFAULT_CELL_COLOR) {
@@ -35,6 +37,8 @@ function fill(x, y, color = DEFAULT_CELL_COLOR) {
     color,
     type: 'fill'
   };
+
+  _refreshBoard(); 
 }
 
 function drawImage(url, x, y, width = 1, height = 1) {
@@ -67,6 +71,8 @@ function drawImage(url, x, y, width = 1, height = 1) {
     height,
     type: 'image'
   };
+
+  _refreshBoard();
 } 
 
 function isFilled(x, y) {
@@ -79,6 +85,8 @@ function clearBoard() {
       cells[i][j] = 0;
     }
   }
+
+  _refreshBoard();
 }
 
 function setBoardSize(newBoardSize) {
