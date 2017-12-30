@@ -1,9 +1,12 @@
 window.addEventListener('keydown', this._onKeyDown, false);
 
-const canvas = document.getElementById('c').getContext('2d');
+const canvas = document.getElementById('boardCanvas').getContext('2d');
 canvas.strokeStyle = '#e1e1e1';
 
-const canvasPixels = 512;
+canvas.canvas.width = 512;
+canvas.canvas.height = 512;
+
+const canvasPixels = 1024;
 let cellPixels = 16;
 let boardSize = canvasPixels / cellPixels;
 

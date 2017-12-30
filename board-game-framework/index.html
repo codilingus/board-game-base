@@ -19,16 +19,64 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <script type='text/javascript' src='../internal/board.js' defer></script>
+  <script type='text/javascript' src='../internal/board-api.js'></script>
+  <script type='text/javascript' src='game.js'></script>
+
   <link href="theme.css" rel="stylesheet">
 </head>
 
 <body>
   <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
-      <div class="navbar-brand title">Title</div>
-      <div class="navbar-brand author">Author</div>
+      <div class="navbar-brand title"></div>
+      <div class="navbar-brand author">
+        <p class="author">Author Authorski</p>
+      </div>
     </div>
   </nav>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Game name</h1>
+      <p>A short description of the animation/game.</p>
+      <div>
+        <p>
+          <div class="btn btn-primary btn-mid" role="button">Start!</div>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="alert alert-success" role="alert">
+      <strong>Well done!</strong> Here is your alert box.
+    </div>
+
+    <div class="stats">
+      <div class="stat-entry">
+        <p class="stat-entry-name">Long long very score:</p>
+        <p>71</p>
+      </div>
+
+      <div class="stat-entry">
+          <p class="stat-entry-name">Score:</p>
+          <p>71</p>
+        </div>
+
+        <div class="stat-entry">
+            <p class="stat-entry-name">Score:</p>
+            <p>7111111444444111</p>
+          </div>
+
+          <div class="stat-entry">
+              <p class="stat-entry-name">Score:</p>
+              <p>71</p>
+            </div>
+    </div>
+
+    <canvas id="boardCanvas"></canvas>
+  </div>
 
   <div class="footer">
     <div class="container">
